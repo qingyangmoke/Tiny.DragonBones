@@ -1,5 +1,6 @@
-import {default as dragonBones} from '../libs/dragonBones';
-const {TextureData} = dragonBones;
+import dragonBones from '../libs/dragonBones';
+
+const { TextureData } = dragonBones;
 
 /**
  * @private

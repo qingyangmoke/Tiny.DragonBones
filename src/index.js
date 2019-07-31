@@ -1,4 +1,13 @@
 /**
+ * DragonBones - The TinyJS plugin
+ *
+ * @name        tinyjs-plugin-dragonbones
+ * @overview    The Tiny.js plugin of dragonbones
+ * @author      清扬陌客
+ * @license     MIT
+ */
+
+/**
  * Tiny.js
  * @external Tiny
  * @see {@link http://tinyjs.net/}
@@ -12,23 +21,20 @@
 
 /**
  * @namespace Tiny.DragonBones
- * @memberof Tiny
  */
-import { default as dragonBones } from '../libs/dragonBones';
-const { BaseObject, BaseFactory, WorldClock, Armature, Animation, AnimationState, Bone } = dragonBones;
-
-import { default as TinyArmatureDisplay } from './TinyArmatureDisplay';
-import { default as TinyTextureAtlasData } from './TinyTextureAtlasData';
-import { default as TinyTextureData } from './TinyTextureData';
-import { default as TinySlot } from './TinySlot';
-import { default as DisplayType } from './DisplayType';
-import { default as BlendMode } from './BlendMode';
-import { default as BoundingBoxType } from './BoundingBoxType';
-import { default as TinyFactory } from './TinyFactory';
-
+import dragonBones from '../libs/dragonBones';
+import TinyArmatureDisplay from './TinyArmatureDisplay';
+import TinyTextureAtlasData from './TinyTextureAtlasData';
+import TinyTextureData from './TinyTextureData';
+import TinySlot from './TinySlot';
+import DisplayType from './DisplayType';
+import BlendMode from './BlendMode';
+import BoundingBoxType from './BoundingBoxType';
+import TinyFactory from './TinyFactory';
 import { addDragonBonesData, addTextureAtlasData, buildArmatureDisplay } from './GloabalMethods';
-
 import { Mesh } from 'tinyjs-plugin-mesh';
+
+const { BaseObject, BaseFactory, WorldClock, Armature, Animation, AnimationState, Bone } = dragonBones;
 
 export {
   TinyArmatureDisplay,

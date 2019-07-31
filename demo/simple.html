@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Tiny-骨骼动画</title>
+  <title>多个动画切换</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2,minimum-scale=1,user-scalable=1">
   <style type="text/css">
@@ -18,33 +18,34 @@
 
 <body>
 
-  <script src="https://gw.alipayobjects.com/as/g/tiny/tiny/1.1.5/tiny.js"></script>
-  <script src="../dist/index.debug.js"></script>
+  <script src="https://gw.alipayobjects.com/os/lib/tinyjs/tiny/1.2.4/tiny.js"></script>
+  <script src="../index.debug.js"></script>
   <script src="./js/dragonBonesTest.js"></script>
 
   <script>
     var _dragonBonesTest = new dragonBonesTest();
-    _dragonBonesTest.setup('Tiny骨骼动画演示-多个动画切换');
-    _dragonBonesTest.buildArmatureDisplay('Dragon', 'Dragon', function (armatureDisplay) {
+
+    _dragonBonesTest.setup('多个动画切换');
+    _dragonBonesTest.buildArmatureDisplay('Dragon', 'Dragon', function(armatureDisplay) {
       armatureDisplay.x = _dragonBonesTest.app.renderer.width * 0.5;
       armatureDisplay.y = _dragonBonesTest.app.renderer.height * 0.5 - 50;
       armatureDisplay.scale.set(-0.6, 0.6);
       var animationState = armatureDisplay.play('walk');
 
-      _dragonBonesTest.createButton("debugDraw", 0, 100, 120, 60, 0xff0000, function () {
+      _dragonBonesTest.createButton("debugDraw", 0, 100, 120, 60, 0xff0000, function() {
         armatureDisplay.debugDraw = !armatureDisplay.debugDraw;
       });
 
-      _dragonBonesTest.createButton("fall", 0, 200, 120, 60, 0xff0000, function () {
+      _dragonBonesTest.createButton("fall", 0, 200, 120, 60, 0xff0000, function() {
         armatureDisplay.play('fall');
       });
-      _dragonBonesTest.createButton("jump", 0, 300, 120, 60, 0xff0000, function () {
+      _dragonBonesTest.createButton("jump", 0, 300, 120, 60, 0xff0000, function() {
         armatureDisplay.play('jump');
       });
-      _dragonBonesTest.createButton("stand", 0, 400, 120, 60, 0xff0000, function () {
+      _dragonBonesTest.createButton("stand", 0, 400, 120, 60, 0xff0000, function() {
         armatureDisplay.play('stand');
       });
-      _dragonBonesTest.createButton("walk", 0, 500, 120, 60, 0xff0000, function () {
+      _dragonBonesTest.createButton("walk", 0, 500, 120, 60, 0xff0000, function() {
         armatureDisplay.play('walk');
       });
     });

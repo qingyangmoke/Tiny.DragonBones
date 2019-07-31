@@ -4,4 +4,5 @@ const BoundingBoxType = {
   Ellipse: 1,
   Polygon: 2,
 };
+
 export default BoundingBoxType;

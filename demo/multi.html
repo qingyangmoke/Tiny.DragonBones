@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Tiny-骨骼动画</title>
+  <title>多人物</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2,minimum-scale=1,user-scalable=1">
   <style type="text/css">
@@ -18,32 +18,33 @@
 
 <body>
 
-  <script src="https://gw.alipayobjects.com/as/g/tiny/tiny/1.1.5/tiny.js"></script>
-  <script src="../dist/index.debug.js"></script>
+  <script src="https://gw.alipayobjects.com/os/lib/tinyjs/tiny/1.2.4/tiny.js"></script>
+  <script src="../index.debug.js"></script>
   <script src="./js/dragonBonesTest.js"></script>
   <script>
     var _dragonBonesTest = new dragonBonesTest();
-    _dragonBonesTest.setup('Tiny骨骼动画演示-组合动画');
-    _dragonBonesTest.buildArmatureDisplay('Dragon', 'Dragon', function (armatureDisplay) {
+
+    _dragonBonesTest.setup('多人物');
+    _dragonBonesTest.buildArmatureDisplay('Dragon', 'Dragon', function(armatureDisplay) {
       armatureDisplay.x = armatureDisplay.width * 0.5 * 0.5;
       armatureDisplay.y = _dragonBonesTest.app.renderer.height * 0.5 + 50;
       armatureDisplay.scale.set(-0.4, 0.4);
 
       var animationState = armatureDisplay.play('walk');
 
-      _dragonBonesTest.createButton("debugDraw-Dragon", 0, 100, 220, 60, 0xff0000, function () {
+      _dragonBonesTest.createButton("debugDraw-Dragon", 0, 100, 220, 60, 0xff0000, function() {
         armatureDisplay.debugDraw = !armatureDisplay.debugDraw;
       });
     });
 
-    _dragonBonesTest.buildArmatureDisplay('DragonBoy', 'DragonBoy', function (armatureDisplay) {
+    _dragonBonesTest.buildArmatureDisplay('DragonBoy', 'DragonBoy', function(armatureDisplay) {
       armatureDisplay.x = 400;
       armatureDisplay.y = _dragonBonesTest.app.renderer.height * 0.5 + 50;
       armatureDisplay.scale.set(1.4, 1.4);
 
       var animationState = armatureDisplay.play('walk');
 
-      _dragonBonesTest.createButton("debugDraw-DragonBoy", 0, 200, 220, 60, 0xff0000, function () {
+      _dragonBonesTest.createButton("debugDraw-DragonBoy", 0, 200, 220, 60, 0xff0000, function() {
         armatureDisplay.debugDraw = !armatureDisplay.debugDraw;
       });
     });

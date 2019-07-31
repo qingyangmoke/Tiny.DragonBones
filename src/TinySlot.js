@@ -1,9 +1,9 @@
-import { default as dragonBones } from '../libs/dragonBones';
-import { default as BlendMode } from './BlendMode';
-import { default as TinyTextureAtlasData } from './TinyTextureAtlasData';
+import dragonBones from '../libs/dragonBones';
+import BlendMode from './BlendMode';
+import TinyTextureAtlasData from './TinyTextureAtlasData';
 const { BaseObject, Slot } = dragonBones;
 /**
- * Tiny 插槽。
+ * Tiny 插槽
  *
  * @class TinySlot
  * @memberof Tiny.DragonBones
@@ -38,8 +38,7 @@ class TinySlot extends Slot {
   /**
    * @private
    */
-  _initDisplay(value) {
-  }
+  _initDisplay(value) {}
 
   /**
    * @private
@@ -54,14 +53,14 @@ class TinySlot extends Slot {
    * @private
    */
   _onUpdateDisplay() {
-    this._renderDisplay = (this._display ? this._display : this._rawDisplay);// as Tiny.DisplayObject;
+    this._renderDisplay = (this._display ? this._display : this._rawDisplay); // as Tiny.DisplayObject;
   }
 
   /**
    * @private
    */
   _addDisplay() {
-    const container = this._armature.display;//as TinyArmatureDisplay;
+    const container = this._armature.display; //as TinyArmatureDisplay;
     container.addChild(this._renderDisplay);
   }
 
@@ -70,8 +69,8 @@ class TinySlot extends Slot {
    * @param {any} value
    */
   _replaceDisplay(value) {
-    const container = this._armature.display;// as TinyArmatureDisplay;
-    const prevDisplay = value;// as Tiny.DisplayObject;
+    const container = this._armature.display; // as TinyArmatureDisplay;
+    const prevDisplay = value; // as Tiny.DisplayObject;
     container.addChild(this._renderDisplay);
     container.swapChildren(this._renderDisplay, prevDisplay);
     container.removeChild(prevDisplay);
@@ -88,7 +87,7 @@ class TinySlot extends Slot {
    * @private
    */
   _updateZOrder() {
-    const container = this._armature.display;// as TinyArmatureDisplay;
+    const container = this._armature.display; // as TinyArmatureDisplay;
     const index = container.getChildIndex(this._renderDisplay);
     if (index === this._zOrder) {
       return;
@@ -163,7 +162,7 @@ class TinySlot extends Slot {
    */
   _updateFrame() {
     const isMeshDisplay = this._meshData && this._display === this._meshDisplay;
-    let currentTextureData = this._textureData;//as TinyTextureData;
+    let currentTextureData = this._textureData; //as TinyTextureData;
 
     if (this._displayIndex >= 0 && this._display && currentTextureData) {
       let currentTextureAtlasData = currentTextureData.parent; // as TinyTextureAtlasData;
@@ -178,7 +177,7 @@ class TinySlot extends Slot {
           this._armature._replaceTextureAtlasData = currentTextureAtlasData;
         }
 
-        currentTextureData = currentTextureAtlasData.getTexture(currentTextureData.name);// as PixiTextureData;
+        currentTextureData = currentTextureAtlasData.getTexture(currentTextureData.name); // as PixiTextureData;
       }
 
       const currentTextureAtlas = currentTextureAtlasData.texture;
@@ -194,7 +193,7 @@ class TinySlot extends Slot {
         }
 
         if (isMeshDisplay) { // Mesh.
-          const meshDisplay = this._renderDisplay;// as Tiny.mesh.Mesh;
+          const meshDisplay = this._renderDisplay; // as Tiny.mesh.Mesh;
           const textureAtlasWidth = currentTextureAtlasData.width > 0.0 ? currentTextureAtlasData.width : currentTextureAtlas.width;
           const textureAtlasHeight = currentTextureAtlasData.height > 0.0 ? currentTextureAtlasData.height : currentTextureAtlas.height;
 
@@ -213,7 +212,7 @@ class TinySlot extends Slot {
           //meshDisplay.dirty = true; // Pixi 3.x
           meshDisplay.dirty++; // Pixi 4.x Can not support change mesh vertice count.
         } else { // Normal texture.
-          const normalDisplay = this._renderDisplay;// as Tiny.Sprite;
+          const normalDisplay = this._renderDisplay; // as Tiny.Sprite;
           normalDisplay.texture = currentTextureData.texture;
         }
 
@@ -223,13 +222,13 @@ class TinySlot extends Slot {
     }
 
     if (isMeshDisplay) {
-      const meshDisplay = this._renderDisplay;// as Tiny.mesh.Mesh;
+      const meshDisplay = this._renderDisplay; // as Tiny.mesh.Mesh;
       meshDisplay.texture = null;
       meshDisplay.x = 0.0;
       meshDisplay.y = 0.0;
       meshDisplay.visible = false;
     } else {
-      const normalDisplay = this._renderDisplay;//as Tiny.Sprite;
+      const normalDisplay = this._renderDisplay; //as Tiny.Sprite;
       normalDisplay.texture = null;
       normalDisplay.x = 0.0;
       normalDisplay.y = 0.0;
@@ -241,7 +240,7 @@ class TinySlot extends Slot {
    * @private
    */
   _updateMesh() {
-    const meshDisplay = this._renderDisplay;// as Tiny.mesh.Mesh;
+    const meshDisplay = this._renderDisplay; // as Tiny.mesh.Mesh;
     const hasFFD = this._ffdVertices.length > 0;
     // 设置重复贴图次数 2017年12月21日
     meshDisplay.canvasDrawTimes = this._armature.display.meshCanvasRenderDrawImageTimes || 1;
