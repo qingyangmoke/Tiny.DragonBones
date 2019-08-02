@@ -17,7 +17,14 @@ const banner = `/*!
  * Description: ${pkg.description}
  * Author: ${pkg.author}
  * Version: v${pkg.version}
- */`;
+ */
+${cjs ? `
+// AppX: adapter for the alipay mini program
+if (typeof my !== 'undefined') {
+  Tiny = my.Tiny
+}
+` : ''}
+ `;
 
 const config = {
   input: 'src/index.js',
