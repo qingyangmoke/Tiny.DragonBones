@@ -264,6 +264,9 @@ var dragonBones;
       this.x = this.y = 0.0;
       this.width = this.height = 0.0;
     };
+    Rectangle.prototype.clone = function () {
+      return new Rectangle(this.x, this.y, this.width, this.height);
+    };
     return Rectangle;
   }());
   dragonBones.Rectangle = Rectangle;

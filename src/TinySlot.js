@@ -1,6 +1,7 @@
 import dragonBones from '../libs/dragonBones';
 import BlendMode from './BlendMode';
 import TinyTextureAtlasData from './TinyTextureAtlasData';
+import { Mesh } from 'tinyjs-plugin-mesh';
 const { BaseObject, Slot } = dragonBones;
 /**
  * Tiny 插槽
@@ -155,6 +156,13 @@ class TinySlot extends Slot {
    */
   _updateColor() {
     this._renderDisplay.alpha = this._colorTransform.alphaMultiplier;
+
+    if (this._renderDisplay instanceof Tiny.Sprite || this._renderDisplay instanceof Mesh) {
+      const { redMultiplier, greenMultiplier, blueMultiplier } = this._colorTransform;
+      const color = (Math.round(redMultiplier * 0xFF) << 16) + (Math.round(greenMultiplier * 0xFF) << 8) + Math.round(blueMultiplier * 0xFF);
+
+      this._renderDisplay.tint = color;
+    }
   }
 
   /**
