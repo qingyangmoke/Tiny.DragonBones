@@ -4,8 +4,6 @@
  */
 import TinyFactory from './TinyFactory';
 
-const factory = TinyFactory.factory;
-
 /**
  * 添加骨骼数据
  *
@@ -18,7 +16,7 @@ const factory = TinyFactory.factory;
  * @return {dragonBones.DragonBonesData} dragonBonesData
  */
 function addDragonBonesData(dragonBonesData) {
-  return factory.parseDragonBonesData(dragonBonesData);
+  return TinyFactory.factory.parseDragonBonesData(dragonBonesData);
 }
 
 /**
@@ -33,7 +31,7 @@ function addDragonBonesData(dragonBonesData) {
  * @param {Tiny.BaseTexture} texture - 素材png图片
  */
 function addTextureAtlasData(textureAtlasData, texture) {
-  return factory.parseTextureAtlasData(textureAtlasData, texture);
+  return TinyFactory.factory.parseTextureAtlasData(textureAtlasData, texture);
 }
 
 /**
@@ -50,7 +48,7 @@ function addTextureAtlasData(textureAtlasData, texture) {
  * @param {string} textureAtlasName  - 贴图集数据名称，如果未设置，则使用龙骨数据。
  */
 function buildArmatureDisplay(armatureName, dragonBonesName, skinName, textureAtlasName) {
-  return factory.buildArmatureDisplay(armatureName, dragonBonesName, skinName, textureAtlasName);
+  return TinyFactory.factory.buildArmatureDisplay(armatureName, dragonBonesName, skinName, textureAtlasName);
 }
 
 export {
