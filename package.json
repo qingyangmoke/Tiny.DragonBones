@@ -1,6 +1,6 @@
 {
   "name": "tinyjs-plugin-dragonbones",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "dragonbonesVersion": "5.0.0",
   "author": "清扬陌客",
   "description": "TinyJS 骨骼动画插件",

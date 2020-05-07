@@ -7,8 +7,9 @@ import TinyArmatureDisplay from './TinyArmatureDisplay';
 import TinyTextureAtlasData from './TinyTextureAtlasData';
 import TinySlot from './TinySlot';
 import DisplayType from './DisplayType';
-import { Mesh } from 'tinyjs-plugin-mesh';
+import mesh from 'tinyjs-plugin-mesh/index';
 
+const { Mesh } = mesh;
 const { BaseObject, BaseFactory, WorldClock, Armature } = dragonBones;
 
 /**
