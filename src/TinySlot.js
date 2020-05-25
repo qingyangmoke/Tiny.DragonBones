@@ -1,7 +1,7 @@
 import dragonBones from '../libs/dragonBones';
 import BlendMode from './BlendMode';
 import TinyTextureAtlasData from './TinyTextureAtlasData';
-import mesh from 'tinyjs-plugin-mesh/index';
+import mesh from 'tinyjs-plugin-mesh';
 
 const { Mesh } = mesh;
 const { BaseObject, Slot } = dragonBones;

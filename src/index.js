@@ -32,7 +32,7 @@ import BlendMode from './BlendMode';
 import BoundingBoxType from './BoundingBoxType';
 import TinyFactory from './TinyFactory';
 import { addDragonBonesData, addTextureAtlasData, buildArmatureDisplay } from './GloabalMethods';
-import mesh from 'tinyjs-plugin-mesh/index';
+import mesh from 'tinyjs-plugin-mesh';
 
 const { Mesh } = mesh;
 const { BaseObject, BaseFactory, WorldClock, Armature, Animation, AnimationState, Bone } = dragonBones;
