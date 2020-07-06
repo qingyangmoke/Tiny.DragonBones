@@ -21,6 +21,7 @@ const banner = `/*!
 ${cjs ? `
 // AppX: adapter for the alibaba mini program
 if (typeof $global !== 'undefined') {
+  window = $global.window
   Tiny = $global.Tiny
 }
 ` : ''}`;
