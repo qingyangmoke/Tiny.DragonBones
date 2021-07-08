@@ -1,7 +1,8 @@
-import { default as BoundingBoxType } from './BoundingBoxType';
+import BoundingBoxType from './BoundingBoxType';
 
 /**
  * 骨骼显示对象
+ *
  * @class TinyArmatureDisplay
  * @property {boolean} animation - 只读 dragonBones.Animation对象
  * @property {dragonBones.Armature} armature - 只读  dragonBones.Armature实例
@@ -146,9 +147,10 @@ class TinyArmatureDisplay extends Tiny.Container {
   /**
    * listeners 别名 供dragonBones内部
    * 是否注册了某一个类型的事件
+   *
    * @private
    * @method Tiny.DragonBones.TinyArmatureDisplay#hasEvent
-   * @param {String} type - 时间名字
+   * @param {string} type - 时间名字
    * @return {boolean}
    */
   hasEvent(type) {
@@ -157,9 +159,10 @@ class TinyArmatureDisplay extends Tiny.Container {
 
   /**
    * addListener别名 供dragonBones内部
+   *
    * @private
    * @method Tiny.DragonBones.TinyArmatureDisplay#addEvent
-   * @param {String} type - 事件的名称
+   * @param {string} type - 事件的名称
    * @param {function} listener - 事件回调函数
    * @param {any} target - 事件回调作用域
    */
@@ -171,7 +174,7 @@ class TinyArmatureDisplay extends Tiny.Container {
    * removeListener别名 供dragonBones内部
    * @private
    * @method Tiny.DragonBones.TinyArmatureDisplay#removeEvent
-   * @param {String} type - 事件的名称
+   * @param {string} type - 事件的名称
    * @param {function} listener - 事件回调函数
    * @param {any} target - 事件回调作用域
    */
@@ -192,6 +195,7 @@ class TinyArmatureDisplay extends Tiny.Container {
 
   /**
    * armature
+   *
    * @property armature
    * @type {dragonBones.Armature}
    */
@@ -201,6 +205,7 @@ class TinyArmatureDisplay extends Tiny.Container {
 
   /**
    * animation
+   *
    * @property armature
    * @type {dragonBones.Animation}
    */
@@ -210,6 +215,7 @@ class TinyArmatureDisplay extends Tiny.Container {
 
   /**
    * 增加调试模式快捷方式
+   *
    * @type {boolean}
    */
   get debugDraw() {
@@ -225,6 +231,7 @@ class TinyArmatureDisplay extends Tiny.Container {
 
   /**
    * 增加播放动画快捷方式 参考dragonBones.Animation
+   *
    * @method Tiny.DragonBones.TinyArmatureDisplay#play
    * @param animationName 动画数据名称，如果未设置，则播放默认动画，或将暂停状态切换为播放状态，或重新播放上一个正在播放的动画。
    * @param playTimes 播放次数。 [-1: 使用动画数据默认值, 0: 无限循环播放, [1~N]: 循环播放 N 次]
@@ -249,8 +256,10 @@ class TinyArmatureDisplay extends Tiny.Container {
   */
 
   /**
-   * 插件里MeshCanvasRender 网格贴图绘制的重复贴图次数 默认是1
+   * 插件里 MeshCanvasRender 网格贴图绘制的重复贴图次数
+   *
    * @property meshCanvasRenderDrawImageTimes
+   * @default 1
    * @type {number}
    */
   get meshCanvasRenderDrawImageTimes() {

@@ -5,4 +5,5 @@ const DisplayType = {
   Mesh: 2,
   BoundingBox: 3,
 };
+
 export default DisplayType;

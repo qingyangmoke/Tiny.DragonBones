@@ -2,17 +2,19 @@
  * @file        Tiny.DragonBone.TinyFactory
  * @author      清扬陌客 <qingyangmoke@qq.com>
  */
+import dragonBones from '../libs/dragonBones';
+import TinyArmatureDisplay from './TinyArmatureDisplay';
+import TinyTextureAtlasData from './TinyTextureAtlasData';
+import TinySlot from './TinySlot';
+import DisplayType from './DisplayType';
+import mesh from 'tinyjs-plugin-mesh';
 
-import { default as dragonBones } from '../libs/dragonBones';
-import { default as TinyArmatureDisplay } from './TinyArmatureDisplay';
-import { default as TinyTextureAtlasData } from './TinyTextureAtlasData';
-import { default as TinySlot } from './TinySlot';
-import { default as DisplayType } from './DisplayType';
-import { Mesh } from 'tinyjs-plugin-mesh';
+const { Mesh } = mesh;
 const { BaseObject, BaseFactory, WorldClock, Armature } = dragonBones;
 
 /**
  * Tiny.DragonBone.TinyFactory
+ *
  * @class TinyFactory
  * @constructor
  * @memberof Tiny.DragonBones
@@ -22,17 +24,18 @@ const { BaseObject, BaseFactory, WorldClock, Armature } = dragonBones;
 class TinyFactory extends BaseFactory {
   /**
    * 创建一个工厂。 (通常只需要一个全局工厂实例)
+   *
    * @constructor
    * @param {dragonBones.DataParser} dataParser - 龙骨数据解析器，如果不设置，则使用默认解析器。
    * @version DragonBones 3.0
    */
-  constructor(dataParser = null) {
+  constructor(dataParser = null, ticker) {
     super(dataParser);
 
-    if (!TinyFactory._eventManager) {
+    if (!TinyFactory._eventManager || ticker) {
       TinyFactory._eventManager = new TinyArmatureDisplay();
       TinyFactory._clock = new WorldClock();
-      Tiny.ticker.shared.add(TinyFactory._clockHandler, TinyFactory);
+      (ticker || Tiny.ticker.shared).add(TinyFactory._clockHandler, TinyFactory);
     }
   }
 
@@ -61,7 +64,6 @@ class TinyFactory extends BaseFactory {
   }
 
   /**
-   * @language zh_CN
    * 一个可以直接使用的全局 WorldClock 实例.
    *
    * @static
@@ -193,10 +195,10 @@ class TinyFactory extends BaseFactory {
    * 创建一个指定名称的骨架，并使用骨架的显示容器来更新骨架动画。
    *
    * @method Tiny.DragonBones.TinyFactory#buildArmatureDisplay
-   * @param {string} armatureName 骨架名称。
-   * @param {string} dragonBonesName 龙骨数据名称，如果未设置，将检索所有的龙骨数据，如果多个数据中包含同名的骨架数据，可能无法创建出准确的骨架。
-   * @param {string} skinName 皮肤名称，如果未设置，则使用默认皮肤。
-   * @param {string} textureAtlasName 贴图集数据名称，如果未设置，则使用龙骨数据。
+   * @param {string} armatureName - 骨架名称。
+   * @param {string} dragonBonesName - 龙骨数据名称，如果未设置，将检索所有的龙骨数据，如果多个数据中包含同名的骨架数据，可能无法创建出准确的骨架。
+   * @param {string} skinName - 皮肤名称，如果未设置，则使用默认皮肤。
+   * @param {string} textureAtlasName - 贴图集数据名称，如果未设置，则使用龙骨数据。
    * @return {TinyArmatureDisplay} 骨架的显示容器。
    * @see TinyArmatureDisplay
    * @version DragonBones 4.5
@@ -218,8 +220,8 @@ class TinyFactory extends BaseFactory {
    * 获取带有指定贴图的显示对象。
    *
    * @method Tiny.DragonBones.TinyFactory#getTextureDisplay
-   * @param {string} textureName 指定的贴图名称。
-   * @param {string} dragonBonesName 指定的龙骨数据名称，如果未设置，将检索所有的龙骨数据。
+   * @param {string} textureName - 指定的贴图名称。
+   * @param {string} dragonBonesName - 指定的龙骨数据名称，如果未设置，将检索所有的龙骨数据。
    * @version DragonBones 3.0
    * @return {Tiny.Sprite}
    */

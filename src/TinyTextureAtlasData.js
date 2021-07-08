@@ -1,8 +1,9 @@
-import {default as dragonBones} from '../libs/dragonBones';
-import {default as TinyTextureData} from './TinyTextureData';
-const {BaseObject, TextureAtlasData} = dragonBones;
+import dragonBones from '../libs/dragonBones';
+import TinyTextureData from './TinyTextureData';
+
+const { BaseObject, TextureAtlasData } = dragonBones;
+
 /**
- * @language zh_CN
  * Tiny 贴图集数据。
  *
  * @class TinyTextureAtlasData
@@ -47,6 +48,7 @@ class TinyTextureAtlasData extends TextureAtlasData {
 
   /**
    * 生成一个Tiny.DragonBones.TinyTextureData对象
+   *
    * @method Tiny.DragonBones.TinyTextureAtlasData#generateTexture
    * @return {Tiny.DragonBones.TinyTextureData}
    */

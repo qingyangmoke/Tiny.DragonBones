@@ -264,6 +264,9 @@ var dragonBones;
       this.x = this.y = 0.0;
       this.width = this.height = 0.0;
     };
+    Rectangle.prototype.clone = function () {
+      return new Rectangle(this.x, this.y, this.width, this.height);
+    };
     return Rectangle;
   }());
   dragonBones.Rectangle = Rectangle;
@@ -8999,7 +9002,7 @@ var dragonBones;
       if (passedTime !== passedTime) {
         passedTime = 0.0;
       }
-      const currentTime = Tiny.getTime() / dragonBones.DragonBones.SECOND_TO_MILLISECOND;
+      var currentTime = Tiny.getTime() / dragonBones.DragonBones.SECOND_TO_MILLISECOND;
       if (passedTime < 0.0) {
         // passedTime = new Date().getTime() / dragonBones.DragonBones.SECOND_TO_MILLISECOND - this.time;
         // passedTime = Tiny.getTime() / dragonBones.DragonBones.SECOND_TO_MILLISECOND - this.time;
